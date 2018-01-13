@@ -12,7 +12,7 @@ def reshape_data(df):
     data = pd.melt(df, id_vars=["continent", "country"],
                    var_name="quantity_year",
                    value_name="value")
-    quantity_year = data["quantity"].str.split('_')
+    quantity_year = data["quantity_year"].str.split('_')
     data["quantity"] = quantity_year.str.get(0)
     data["year"] = quantity_year.str.get(1)
     data["year"] = data["year"].astype(int)
